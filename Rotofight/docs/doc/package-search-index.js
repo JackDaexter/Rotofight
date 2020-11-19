@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"fr.umlv.rotofight"},{"l":"fr.umlv.rotofight.io"},{"l":"fr.umlv.rotofight.main"}]

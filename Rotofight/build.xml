@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="Ngounou_CURRIER_Rotofight" basedir="." >
+    <!-- Create the javadoc -->
+    <property name="Rotofight.bin.main" value="classes/fr/umlv/rotofight/main"/>
+    <property name="Rotofight.bin.io" value="classes/fr/umlv/rotofight/io"/>
+    <property name="Rotofight.bin" value="classes/fr/umlv/rotofight"/>
+    <property name="Rotofight.main" value="src/fr/umlv/rotofight/main"/>
+    <property name="Rotofight.src"  value="src/fr/umlv/rotofight"/>
+	<property name="Rotofight.io"  value="src/fr/umlv/rotofight/io"/>
+
+    <target name="javadoc">
+    	<javadoc sourcepath="src" destdir="docs/doc" classpath="lib/zen5.jar"/>
+    </target>
+    
+     <target name="jar" depends="compile">
+		<jar jarfile="Rotofight.jar" basedir="classes" >
+			<manifest>
+				<attribute name="Main-Class" value="fr.umlv.rotofight.main.Main"/>
+				<attribute name="Class-Path" value="lib/zen5.jar"/>
+			</manifest>
+    	</jar>
+    </target>
+    
+    <target name="compile" description="Compilation of different class" depends="clean">
+		<mkdir dir="${Rotofight.bin.main}" />
+    	<javac includeantruntime="false" srcdir = "src" destdir="classes" classpath="lib/zen5.jar"/>
+    </target>
+    
+    <target name="clean">
+		<delete file="Rotofight.jar"/>
+		<delete includeemptydirs="true">
+			<fileset dir="classes" includes="**/*"/>
+		</delete>
+    </target>
+    
+</project>
